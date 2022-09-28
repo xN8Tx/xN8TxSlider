@@ -1,0 +1,35 @@
+[slider-container] {
+    overflow: hidden;
+}
+
+[slider-body] {
+    display: flex;
+    position: relative;
+
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+}
+
+[slider-body__item][slider-active] {
+    position: relative;
+    right: 0;
+}
+
+[slider-body__item][slider-nonactive] {
+    position: absolute;
+    right: 100%;
+}
+
+[slider-button_prev] {}
+
+[slider-button_next] {}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    margin: 25px;
+    border: none;
+}
