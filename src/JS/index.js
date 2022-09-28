@@ -21,21 +21,32 @@ const toggleNowActive = (now) => {
 
 addAttr()
 
-sliderButtonNext.addEventListener('click', (e) => {
+sliderButtonNext.addEventListener('click', () => {
     const nowActive = document.querySelector('[slider-active]');
 
-    nowActive.nextElementSibling.toggleAttribute('slider-active');
-    nowActive.nextElementSibling.toggleAttribute('slider-nonactive');
+    if (nowActive == sliderBody.lastElementChild) {
+        sliderBody.firstElementChild.toggleAttribute('slider-active');
+        sliderBody.firstElementChild.toggleAttribute('slider-nonactive');
+    } else {
+        nowActive.nextElementSibling.toggleAttribute('slider-active');
+        nowActive.nextElementSibling.toggleAttribute('slider-nonactive');        
+    }
 
     toggleNowActive(nowActive);
 })
 
-sliderButtonPrev.addEventListener('click', (e) => {
+sliderButtonPrev.addEventListener('click', () => {
     const nowActive = document.querySelector('[slider-active]');
 
-    nowActive.previousElementSibling.toggleAttribute('slider-active');
-    nowActive.previousElementSibling.toggleAttribute('slider-nonactive');
+    if (nowActive == sliderBody.firstElementChild) {
+        sliderBody.lastElementChild.toggleAttribute('slider-active');
+        sliderBody.lastElementChild.toggleAttribute('slider-nonactive');
+    } else{
+        nowActive.previousElementSibling.toggleAttribute('slider-active');
+        nowActive.previousElementSibling.toggleAttribute('slider-nonactive');
+    }
 
     toggleNowActive(nowActive);
 })
 
+console.log(sliderBody.lastElementChild);
