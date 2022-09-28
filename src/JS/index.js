@@ -9,23 +9,25 @@ const addAttr = () => {
         for (item of child) {
             item.toggleAttribute('slider-nonactive');
         }
+        sliderBody.firstElementChild.toggleAttribute('slider-active');
+        sliderBody.firstElementChild.toggleAttribute('slider-nonactive');
     }
 }
 
-const activeAttr = () => {
-    sliderBody.firstElementChild.toggleAttribute('slider-active');
-    sliderBody.firstElementChild.toggleAttribute('slider-nonactive');
+const toggleNowActive = (now) => {
+    now.toggleAttribute('slider-active');
+    now.toggleAttribute('slider-nonactive');
 }
 
 addAttr()
-activeAttr()
 
 sliderButtonNext.addEventListener('click', (e) => {
     const nowActive = document.querySelector('[slider-active]');
+
     nowActive.nextElementSibling.toggleAttribute('slider-active');
     nowActive.nextElementSibling.toggleAttribute('slider-nonactive');
-    nowActive.toggleAttribute('slider-active');
-    nowActive.toggleAttribute('slider-nonactive');
+
+    toggleNowActive(nowActive);
 })
 
 sliderButtonPrev.addEventListener('click', (e) => {
@@ -34,7 +36,6 @@ sliderButtonPrev.addEventListener('click', (e) => {
     nowActive.previousElementSibling.toggleAttribute('slider-active');
     nowActive.previousElementSibling.toggleAttribute('slider-nonactive');
 
-    nowActive.toggleAttribute('slider-active');
-    nowActive.toggleAttribute('slider-nonactive');
+    toggleNowActive(nowActive);
 })
 
