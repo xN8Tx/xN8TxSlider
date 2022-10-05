@@ -13,12 +13,65 @@
 
 [slider-body__item][slider-active] {
     position: relative;
-    right: 0;
+    /* right: 0; */
 }
 
 [slider-body__item][slider-nonactive] {
+    display: none;
     position: absolute;
-    right: 100%;
+    /* right: 0; */
+}
+
+[slider-body__item][slider-active_next] {
+    animation: 1s ease-in activeNext;
+}
+
+[slider-body__item][slider-nonactive_next] {
+    animation: 1s ease-in nonActiveNext;
+}
+
+@keyframes nonActiveNext {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: -100%;
+    }
+}
+
+@keyframes activeNext {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+[slider-body__item][slider-active_prev] {
+    animation: 1s ease-in activePrev;
+}
+
+[slider-body__item][slider-nonactive_prev] {
+    animation: 1s ease-in nonActivePrev;
+}
+
+@keyframes activePrev {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes nonActivePrev {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: 100%;
+    }
 }
 
 [slider-button_prev] {}
